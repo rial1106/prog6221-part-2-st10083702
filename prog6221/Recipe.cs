@@ -13,7 +13,7 @@ namespace prog6221
 
         public List<String> Steps { get; set; } = new List<String> { String.Empty };
 
-        public double ScaleFactor = 1;
+        private double ScaleFactor = 1;
 
         public Recipe(int id, string name)
         {
@@ -23,7 +23,8 @@ namespace prog6221
 
         public override string? ToString()
         {
-            string title = $"For ingredient with Id #{Id}";
+            string title = "********************************";
+            title += $"For ingredient with Id #{Id}";
             string ingredients = String.Empty;
             foreach (var i in Ingredients)
             {
@@ -34,8 +35,9 @@ namespace prog6221
             {
                 steps += s + '\n';
             }
+            steps += "********************************";
 
-            return title + '\n' + ingredients + '\n' + steps;
+            return title + '\n' + ingredients + steps;
         }
 
         public void AddIngredient(Ingredient ingredient)
@@ -72,8 +74,10 @@ namespace prog6221
             ScaleFactor = 1;
         }
 
-        public void scaleSteps(double scaleFactor)
+        private void scaleSteps(double scaleFactor)
         {
+
+            List<String> NewStepsScaled = new List<String>();
             foreach (var step in Steps) // For each step.
             {
                 /* 
@@ -130,8 +134,13 @@ namespace prog6221
                         ' ' + words[2] +
                         ' ' + words[3]
                         );
+
                 }
+
+                NewStepsScaled.Add(newStep);
             }
+
+            Steps = NewStepsScaled;
         }
 
 

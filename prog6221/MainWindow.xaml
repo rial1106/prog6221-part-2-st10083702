@@ -5,33 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:prog6221"
         mc:Ignorable="d"
-        Title="Add a Recipe" Height="450" Width="800">
+        Title="Add a Recipe" Height="500" Width="800">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Grid Margin="15">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Content="Name:"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
-        <Label Grid.Row="1" Grid.Column="0" Content="Steps:"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Steps}"/>
-        <Label Grid.Row="2" Grid.Column="0" Content="Ingredients:"/>
-        <DataGrid Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Ingredients}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
-                <DataGridTextColumn Header="Unit" Binding="{Binding Unit}"/>
-                <DataGridTextColumn Header="Calories" Binding="{Binding Calories}"/>
-                <DataGridTextColumn Header="Food Group" Binding="{Binding FoodGroup}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button Grid.Row="3" Grid.Column="1" Content="Add Ingredient" Command="{Binding AddIngredientCommand}"/>
+        <Label FontSize="20" FontWeight="Light" Height="40" HorizontalAlignment="Right" Margin="0,51,10,313">Recipe Name:</Label>
+        <Label FontSize="20" FontWeight="Light"  Height="40" Margin="0,108,10,256" HorizontalAlignment="Right">Recipe Ingredients:</Label>
+        <Label FontSize="20" FontWeight="Light"  Height="40" Margin="0,202,10,162" HorizontalAlignment="Right">Recipe Steps:</Label>
+
+        <Label FontSize="20" Grid.Column="1" FontWeight="Light" Height="40" HorizontalAlignment="Left" Margin="0,51,10,313" Content="{Binding Name}"/>
+        <Label FontSize="20"  Grid.Column="1" FontWeight="Light"  Height="40" Margin="0,108,10,256" HorizontalAlignment="Left">Recipe Ingredients:</Label>
+        <ListBox FontSize="20" ItemsSource="{Binding Steps}" Grid.Column="1" FontWeight="Light"  Height="40" Margin="0,202,10,162" HorizontalAlignment="Left">Recipe Steps:</ListBox>
+
     </Grid>
 </Window>

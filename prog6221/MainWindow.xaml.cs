@@ -28,7 +28,9 @@ namespace prog6221
             Ingredient ingredient1 = new Ingredient(0, "Flour", 100, "Grams", 200, FOOD_GROUP.STARCHY_FOODS);
             Recipe recipe = new Recipe(0, "Roti");
             recipe.AddIngredient(ingredient1);
-            recipe.AddStep("Boil 100 grams of water");
+            recipe.AddStep("Boil 100 grams of water and 10 grams of sodium");
+
+            this.DataContext= recipe;
 
             Trace.WriteLine(recipe.ToString());
 
