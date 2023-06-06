@@ -33,9 +33,15 @@ namespace prog6221
                         Container.Recipes.Add(recipe);*/
 
             Recipe recipe = Container.Recipes.Find(x => x.Id == RecipeId);
+            recipe.AboveThreshold += Details_AboveThreshold;
 
             this.DataContext= recipe;
 
+        }
+
+        private void Details_AboveThreshold(double value)
+        {
+            MessageBox.Show($"The total calories for this recipe is above 300, it is currently {value}!");
         }
     }
 }

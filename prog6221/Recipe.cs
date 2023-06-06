@@ -4,6 +4,9 @@ using System.Text.RegularExpressions;
 
 namespace prog6221
 {
+
+    public delegate void AboveThresholdEventHandler(double value);
+
     public class Recipe
     {
         public int Id { get; set; }
@@ -15,6 +18,9 @@ namespace prog6221
 
         private double ScaleFactor = 1;
 
+
+        public event AboveThresholdEventHandler AboveThreshold;
+
         public Recipe(int id, string name)
         {
             Id = id;
@@ -23,7 +29,7 @@ namespace prog6221
 
         public override string? ToString()
         {
-            string title = "********************************";
+            /*string title = "********************************";
             title += $"For ingredient with Id #{Id}";
             string ingredients = String.Empty;
             foreach (var i in Ingredients)
@@ -37,7 +43,8 @@ namespace prog6221
             }
             steps += "********************************";
 
-            return title + '\n' + ingredients + steps;
+            return title + '\n' + ingredients + steps;*/
+            return Name;
         }
 
         public double TotalCalories
@@ -49,6 +56,12 @@ namespace prog6221
                 {
                     total += i.NumberOfCalories;
                 }
+
+                if (total > 300)
+                {
+                    AboveThreshold?.Invoke(total);
+                }
+
                 return total;
             }
         }
