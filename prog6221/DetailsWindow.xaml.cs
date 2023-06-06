@@ -21,18 +21,14 @@ namespace prog6221
     /// </summary>
     public partial class DetailsWindow : Window
     {
+
+        Recipe recipe = null!;
         public DetailsWindow(int RecipeId)
         {
             InitializeComponent();
 
-            /*            Ingredient ingredient1 = new Ingredient(0, "Flour", 100, "Grams", 200, FOOD_GROUP.STARCHY_FOODS);
-                        Recipe recipe = new Recipe(0, "Roti");
-                        recipe.AddIngredient(ingredient1);
-                        recipe.AddStep("Boil 100 grams of water and 10 grams of sodium");
-
-                        Container.Recipes.Add(recipe);*/
-
-            Recipe recipe = Container.Recipes.Find(x => x.Id == RecipeId);
+            recipe = Container.Recipes.Find(x => x.Id == RecipeId);
+            recipe.AboveThreshold -= Details_AboveThreshold;
             recipe.AboveThreshold += Details_AboveThreshold;
 
             this.DataContext= recipe;
@@ -42,6 +38,8 @@ namespace prog6221
         private void Details_AboveThreshold(double value)
         {
             MessageBox.Show($"The total calories for this recipe is above 300, it is currently {value}!");
+            // Unsubscribe from the event to prevent resubscribing
+            recipe.AboveThreshold -= Details_AboveThreshold;
         }
     }
 }

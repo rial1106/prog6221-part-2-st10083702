@@ -29,21 +29,6 @@ namespace prog6221
 
         public override string? ToString()
         {
-            /*string title = "********************************";
-            title += $"For ingredient with Id #{Id}";
-            string ingredients = String.Empty;
-            foreach (var i in Ingredients)
-            {
-                ingredients += i.Quantity + " " + i.UnitOfMeasurement + " of " + i.Name + '\n';
-            }
-            string steps = String.Empty;
-            foreach(var s in Steps)
-            {
-                steps += s + '\n';
-            }
-            steps += "********************************";
-
-            return title + '\n' + ingredients + steps;*/
             return Name;
         }
 

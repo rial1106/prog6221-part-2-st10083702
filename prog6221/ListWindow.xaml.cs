@@ -24,6 +24,7 @@ namespace prog6221
         public ListWindow()
         {
             InitializeComponent();
+            Container.Recipes.Sort((x, y) => string.Compare(x.Name, y.Name));
             LstRecipes.ItemsSource = Container.Recipes;
 
         }

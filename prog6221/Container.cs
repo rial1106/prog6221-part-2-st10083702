@@ -22,7 +22,23 @@ namespace prog6221
                     new string("Add 100 litres of water into the pot.")
                 }
             },
-            new Recipe(1, "Pasta")
+            new Recipe(1, "Tea")
+            {
+                Ingredients = new List<Ingredient>
+                {
+                    new Ingredient(4, "Tea Bag", 5, "Grams", 10, FOOD_GROUP.DRY_BEANS_PEAS_LENTILS_SOYA),
+                    new Ingredient(5, "Water", 250, "Millilitres", 0, FOOD_GROUP.WATER),
+                    new Ingredient(6, "Milk", 0.1, "Litres", 100, FOOD_GROUP.MILK_AND_DAIRY)
+                },
+
+                Steps = new List<string>
+                {
+                    new string("Add 5 grams of tea bags to the cup."),
+                    new string("Add 250 mililitres of boiling water to that."),
+                    new string("Add 100 ml of milk and stir thoroughly.")
+                }
+            },
+            new Recipe(2, "Pasta")
             {
                 Ingredients = new List<Ingredient>
                 {
