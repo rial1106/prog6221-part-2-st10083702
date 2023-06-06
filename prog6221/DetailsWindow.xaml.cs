@@ -17,33 +17,24 @@ using System.Windows.Shapes;
 namespace prog6221
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DetailsWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DetailsWindow : Window
     {
-        public MainWindow()
+        public DetailsWindow(int RecipeId)
         {
             InitializeComponent();
 
-            Ingredient ingredient1 = new Ingredient(0, "Flour", 100, "Grams", 200, FOOD_GROUP.STARCHY_FOODS);
-            Recipe recipe = new Recipe(0, "Roti");
-            recipe.AddIngredient(ingredient1);
-            recipe.AddStep("Boil 100 grams of water and 10 grams of sodium");
+            /*            Ingredient ingredient1 = new Ingredient(0, "Flour", 100, "Grams", 200, FOOD_GROUP.STARCHY_FOODS);
+                        Recipe recipe = new Recipe(0, "Roti");
+                        recipe.AddIngredient(ingredient1);
+                        recipe.AddStep("Boil 100 grams of water and 10 grams of sodium");
 
-            Container.Recipes.Add(recipe);
+                        Container.Recipes.Add(recipe);*/
+
+            Recipe recipe = Container.Recipes.Find(x => x.Id == RecipeId);
 
             this.DataContext= recipe;
-
-            Trace.WriteLine(recipe.ToString());
-
-            recipe.ScaleRecipe(2.0f);
-            Trace.WriteLine(recipe.ToString());
-
-            recipe.ScaleRecipe(3.0f);
-            Trace.WriteLine(recipe.ToString());
-
-            recipe.ResetScaleRecipe();
-            Trace.WriteLine(recipe.ToString());
 
         }
     }

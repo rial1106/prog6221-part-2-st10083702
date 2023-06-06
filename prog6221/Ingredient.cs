@@ -26,7 +26,7 @@ namespace prog6221
         WATER
     }
 
-    internal class Ingredient
+    public class Ingredient
     {
         public Ingredient(int id, string name, double quantity, string unitOfMeasurement,
             double numberOfCalories, FOOD_GROUP fOOD_GROUP)
