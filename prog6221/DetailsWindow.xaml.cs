@@ -27,19 +27,46 @@ namespace prog6221
         {
             InitializeComponent();
 
+            // Only the Id is passed to this window for performance
+            // So find the actual object from that.
             recipe = Container.Recipes.Find(x => x.Id == RecipeId);
+
+            // Remove delegate (To prevent duplicates)
             recipe.AboveThreshold -= Details_AboveThreshold;
+            // Register Delegate
             recipe.AboveThreshold += Details_AboveThreshold;
 
+            // Set the context for the UI.
             this.DataContext= recipe;
 
         }
 
+        // Implement Delegate
         private void Details_AboveThreshold(double value)
         {
             MessageBox.Show($"The total calories for this recipe is above 300, it is currently {value}!");
             // Unsubscribe from the event to prevent resubscribing
             recipe.AboveThreshold -= Details_AboveThreshold;
+        }
+
+        private void ResetBtn_Click(object sender, RoutedEventArgs e)
+        {
+            recipe.ResetScaleRecipe();
+        }
+
+        private void HalfScaleBtn_Click(object sender, RoutedEventArgs e)
+        {
+            recipe.ScaleRecipe(0.5);
+        }
+
+        private void DoubleScaleBtn_Click(object sender, RoutedEventArgs e)
+        {
+            recipe.ScaleRecipe(2.0);
+        }
+
+        private void TripleScaleBtn_Click(object sender, RoutedEventArgs e)
+        {
+            recipe.ScaleRecipe(3.0);
         }
     }
 }

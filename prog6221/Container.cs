@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace prog6221
 {
+
+    // Holds the list of all Recipes.
     static class Container
     {
+        // The list with some default values.
         public static List<Recipe> Recipes = new List<Recipe>()
         {
             new Recipe(0, "Bread")

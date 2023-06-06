@@ -18,7 +18,7 @@ namespace prog6221
 
         private double ScaleFactor = 1;
 
-
+        // Delegate
         public event AboveThresholdEventHandler AboveThreshold;
 
         public Recipe(int id, string name)
@@ -27,11 +27,13 @@ namespace prog6221
             Name = name;
         }
 
+        // The ToString is called on the object to display it in the list.
         public override string? ToString()
         {
             return Name;
         }
 
+        // Count the total calories in all the ingredients.
         public double TotalCalories
         {
             get
@@ -73,6 +75,7 @@ namespace prog6221
 
         }
 
+        // Undo all scaling, note: scaling in compounding.
         public void ResetScaleRecipe()
         {
             foreach (Ingredient x in Ingredients)
@@ -84,6 +87,7 @@ namespace prog6221
             ScaleFactor = 1;
         }
 
+        // Note: SCALING IS COMPOUNDING.
         private void scaleSteps(double scaleFactor)
         {
 

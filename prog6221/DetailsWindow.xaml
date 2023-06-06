@@ -42,6 +42,10 @@
         </ListBox>
         <Label FontSize="20" Grid.Column="1" FontWeight="Light" Height="40" HorizontalAlignment="Left" Margin="0,259,0,255" Content="{Binding TotalCalories}" />
         <ListBox FontSize="15" ItemsSource="{Binding Steps}" Grid.Column="1" FontWeight="Light"  Height="140" Width="350" Margin="0,375,0,39" HorizontalAlignment="Left" ScrollViewer.VerticalScrollBarVisibility="Visible" d:ItemsSource="{d:SampleData ItemCount=5}" />
+        <Button x:Name="ResetBtn" Content="Reset Scale" Width="80" Height="30" Margin="110,312,255,212" Click="ResetBtn_Click" />
+        <Button x:Name="HalfScaleBtn" Content="Scale by 0.5x" Width="80" Height="30" Margin="110,351,255,173" Click="HalfScaleBtn_Click"/>
+        <Button x:Name="DoubleScaleBtn" Content="Scale by 2x" Width="80" Height="30" Margin="110,392,255,132" Click="DoubleScaleBtn_Click"/>
+        <Button x:Name="TripleScaleBtn" Content="Scale by 3x" Width="80" Height="30" Margin="110,435,255,89" Click="TripleScaleBtn_Click"/>
 
     </Grid>
 </Window>
