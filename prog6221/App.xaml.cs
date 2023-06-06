@@ -13,5 +13,6 @@ namespace prog6221
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

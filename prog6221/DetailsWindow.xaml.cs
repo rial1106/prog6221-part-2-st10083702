@@ -30,6 +30,8 @@ namespace prog6221
             recipe.AddIngredient(ingredient1);
             recipe.AddStep("Boil 100 grams of water and 10 grams of sodium");
 
+            Container.Recipes.Add(recipe);
+
             this.DataContext= recipe;
 
             Trace.WriteLine(recipe.ToString());

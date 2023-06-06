@@ -11,7 +11,7 @@ namespace prog6221
 
         public List<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
 
-        public List<String> Steps { get; set; } = new List<String> { String.Empty };
+        public List<String> Steps { get; set; } = new List<String> ();
 
         private double ScaleFactor = 1;
 
@@ -40,6 +40,18 @@ namespace prog6221
             return title + '\n' + ingredients + steps;
         }
 
+        public double TotalCalories
+        {
+            get
+            {
+                double total = 0;
+                foreach(var i in Ingredients)
+                {
+                    total += i.NumberOfCalories;
+                }
+                return total;
+            }
+        }
         public void AddIngredient(Ingredient ingredient)
         {
             Ingredients.Add(ingredient);
